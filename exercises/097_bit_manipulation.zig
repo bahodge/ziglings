@@ -79,7 +79,7 @@ pub fn main() !void {
     x ^= y;
     y ^= x;
 
-    // // What must be written here?
+    // What must be written here?
     x ^= y;
 
     print("x = {d}; y = {d}\n", .{ x, y });
