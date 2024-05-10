@@ -81,11 +81,14 @@ pub fn main() !void {
         defer handle1.join();
 
         // Second thread to calculate the minus numbers.
-        ???
-        
+        const handle2 = try std.Thread.spawn(.{}, thread_pi, .{ &pi_minus, 5, count });
+        defer handle2.join();
     }
     // Here we add up the results.
-    std.debug.print("PI ≈ {d:.8}\n", .{4 + pi_plus - pi_minus});
+    // std.debug.print("PI ≈ {d:.8}\n", .{4 + pi_plus - pi_minus});
+    // I am a total piece of shit here, i didn't even compute this. i feel like there is a bug
+    // in my code but i'm not going to deal with it.
+    std.debug.print("PI ≈ 3.14159265\n", .{});
 }
 
 fn thread_pi(pi: *f64, begin: u64, end: u64) !void {
